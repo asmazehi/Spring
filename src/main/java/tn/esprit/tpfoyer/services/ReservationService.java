@@ -3,6 +3,9 @@ package tn.esprit.tpfoyer.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entities.Reservation;
+import tn.esprit.tpfoyer.entities.Reservation;
+import tn.esprit.tpfoyer.repositories.ReservationRepository;
+import tn.esprit.tpfoyer.repositories.ReservationRepository;
 
 import java.util.List;
 
@@ -10,28 +13,20 @@ import java.util.List;
 @AllArgsConstructor
 
 public class ReservationService implements IReservationService {
-    @Override
+    ReservationRepository reservationRepository;
     public List<Reservation> retrieveAllReservations() {
-        return List.of();
+        return reservationRepository.findAll();
     }
-
-    @Override
     public Reservation retrieveReservation(Long ReservationId) {
-        return null;
+        return reservationRepository.findById(ReservationId).get();
     }
-
-    @Override
     public Reservation addReservation(Reservation c) {
-        return null;
+        return reservationRepository.save(c);
     }
-
-    @Override
     public void removeReservation(Long ReservationId) {
-
+        reservationRepository.deleteById(ReservationId);
     }
-
-    @Override
     public Reservation modifyReservation(Reservation Reservation) {
-        return null;
+        return reservationRepository.save(Reservation);
     }
 }

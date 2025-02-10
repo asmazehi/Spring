@@ -3,6 +3,7 @@ package tn.esprit.tpfoyer.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entities.Foyer;
+import tn.esprit.tpfoyer.repositories.FoyerRepository;
 
 import java.util.List;
 
@@ -10,28 +11,20 @@ import java.util.List;
 @AllArgsConstructor
 
 public class FoyerService implements IFoyerService {
-    @Override
+    FoyerRepository foyerRepository;
     public List<Foyer> retrieveAllFoyers() {
-        return List.of();
+        return foyerRepository.findAll();
     }
-
-    @Override
     public Foyer retrieveFoyer(Long FoyerId) {
-        return null;
+        return foyerRepository.findById(FoyerId).get();
     }
-
-    @Override
     public Foyer addFoyer(Foyer c) {
-        return null;
+        return foyerRepository.save(c);
     }
-
-    @Override
     public void removeFoyer(Long FoyerId) {
-
+        foyerRepository.deleteById(FoyerId);
     }
-
-    @Override
     public Foyer modifyFoyer(Foyer Foyer) {
-        return null;
+        return foyerRepository.save(Foyer);
     }
 }

@@ -16,5 +16,4 @@ public interface ChambreRepository extends JpaRepository<Chambre, Long> {
     // - JpaRepository
 
     // You can add custom query methods here if needed
-    List<Chambre> findByTypeChambre(TypeChambre typeChambre);
 }

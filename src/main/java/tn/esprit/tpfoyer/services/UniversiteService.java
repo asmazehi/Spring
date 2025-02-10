@@ -3,6 +3,7 @@ package tn.esprit.tpfoyer.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entities.Universite;
+import tn.esprit.tpfoyer.repositories.UniversiteRepository;
 
 import java.util.List;
 
@@ -10,28 +11,20 @@ import java.util.List;
 @AllArgsConstructor
 
 public class UniversiteService implements IUniversiteService {
-    @Override
+    UniversiteRepository universiteRepository;
     public List<Universite> retrieveAllUniversites() {
-        return List.of();
+        return universiteRepository.findAll();
     }
-
-    @Override
     public Universite retrieveUniversite(Long UniversiteId) {
-        return null;
+        return universiteRepository.findById(UniversiteId).get();
     }
-
-    @Override
     public Universite addUniversite(Universite c) {
-        return null;
+        return universiteRepository.save(c);
     }
-
-    @Override
     public void removeUniversite(Long UniversiteId) {
-
+        universiteRepository.deleteById(UniversiteId);
     }
-
-    @Override
     public Universite modifyUniversite(Universite Universite) {
-        return null;
+        return universiteRepository.save(Universite);
     }
 }

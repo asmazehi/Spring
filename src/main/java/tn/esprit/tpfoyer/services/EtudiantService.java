@@ -3,6 +3,7 @@ package tn.esprit.tpfoyer.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entities.Etudiant;
+import tn.esprit.tpfoyer.repositories.EtudiantRepository;
 
 import java.util.List;
 
@@ -10,28 +11,21 @@ import java.util.List;
 @AllArgsConstructor
 
 public class EtudiantService implements IEtudiantService{
-    @Override
+
+    EtudiantRepository etudiantRepository;
     public List<Etudiant> retrieveAllEtudiants() {
-        return List.of();
+        return etudiantRepository.findAll();
     }
-
-    @Override
-    public Etudiant retrieveEtudiant(Long EtudiantId) {
-        return null;
+    public Etudiant retrieveEtudiant(Long etudiantId) {
+        return etudiantRepository.findById(etudiantId).get();
     }
-
-    @Override
     public Etudiant addEtudiant(Etudiant c) {
-        return null;
+        return etudiantRepository.save(c);
     }
-
-    @Override
-    public void removeEtudiant(Long EtudiantId) {
-
+    public void removeEtudiant(Long etudiantId) {
+        etudiantRepository.deleteById(etudiantId);
     }
-
-    @Override
-    public Etudiant modifyEtudiant(Etudiant Etudiant) {
-        return null;
+    public Etudiant modifyEtudiant(Etudiant etudiant) {
+        return etudiantRepository.save(etudiant);
     }
 }
