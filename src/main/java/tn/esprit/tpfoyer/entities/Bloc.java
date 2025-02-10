@@ -16,4 +16,36 @@ public class Bloc {
     private Long capaciteBloc;
     @ManyToOne
     private Foyer foyer;
+
+    public String getNomBloc() {
+        return nomBloc;
+    }
+
+    public void setNomBloc(String nomBloc) {
+        this.nomBloc = nomBloc;
+    }
+
+    public Long getIdBloc() {
+        return idBloc;
+    }
+
+    public void setIdBloc(Long idBloc) {
+        this.idBloc = idBloc;
+    }
+
+    public Long getCapaciteBloc() {
+        return capaciteBloc;
+    }
+
+    public void setCapaciteBloc(Long capaciteBloc) {
+        this.capaciteBloc = capaciteBloc;
+    }
+
+    public Foyer getFoyer() {
+        return foyer;
+    }
+
+    public void setFoyer(Foyer foyer) {
+        this.foyer = foyer;
+    }
 }

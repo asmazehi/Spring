@@ -1,6 +1,8 @@
 package tn.esprit.tpfoyer.services;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entities.Universite;
 import tn.esprit.tpfoyer.repositories.UniversiteRepository;
@@ -8,9 +10,10 @@ import tn.esprit.tpfoyer.repositories.UniversiteRepository;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 
 public class UniversiteService implements IUniversiteService {
+    @Autowired
     UniversiteRepository universiteRepository;
     public List<Universite> retrieveAllUniversites() {
         return universiteRepository.findAll();

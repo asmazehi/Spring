@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Chambre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,4 +19,36 @@ public class Chambre {
     private TypeChambre typeC;
     @OneToMany
     private List<Reservation> reservations;
+
+    public Long getIdChambre() {
+        return idChambre;
+    }
+
+    public void setIdChambre(Long idChambre) {
+        this.idChambre = idChambre;
+    }
+
+    public Long getNumeroChambre() {
+        return numeroChambre;
+    }
+
+    public void setNumeroChambre(Long numeroChambre) {
+        this.numeroChambre = numeroChambre;
+    }
+
+    public TypeChambre getTypeC() {
+        return typeC;
+    }
+
+    public void setTypeC(TypeChambre typeC) {
+        this.typeC = typeC;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
 }

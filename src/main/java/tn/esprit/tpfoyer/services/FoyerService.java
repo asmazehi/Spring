@@ -1,6 +1,8 @@
 package tn.esprit.tpfoyer.services;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entities.Foyer;
 import tn.esprit.tpfoyer.repositories.FoyerRepository;
@@ -8,9 +10,10 @@ import tn.esprit.tpfoyer.repositories.FoyerRepository;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 
 public class FoyerService implements IFoyerService {
+    @Autowired
     FoyerRepository foyerRepository;
     public List<Foyer> retrieveAllFoyers() {
         return foyerRepository.findAll();

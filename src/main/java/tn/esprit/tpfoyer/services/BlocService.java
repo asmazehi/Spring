@@ -1,6 +1,8 @@
 package tn.esprit.tpfoyer.services;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entities.Bloc;
 import tn.esprit.tpfoyer.repositories.BlocRepository;
@@ -8,9 +10,10 @@ import tn.esprit.tpfoyer.repositories.BlocRepository;
 import java.util.List;
 
 @Service
-@AllArgsConstructor
+@RequiredArgsConstructor
 
 public class BlocService implements IBlocService{
+    @Autowired
     BlocRepository blocRepository;
     public List<Bloc> retrieveAllBlocs() {
         return blocRepository.findAll();
