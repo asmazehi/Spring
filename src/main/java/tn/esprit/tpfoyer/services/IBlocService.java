@@ -1,5 +1,7 @@
 package tn.esprit.tpfoyer.services;
 import tn.esprit.tpfoyer.entities.Bloc;
+import tn.esprit.tpfoyer.entities.Foyer;
+
 import java.util.List;
 
 public interface IBlocService {
@@ -8,4 +10,5 @@ public interface IBlocService {
     public Bloc addBloc(Bloc c);
     public void removeBloc(Long BlocId);
     public Bloc modifyBloc(Bloc Bloc);
+
 }

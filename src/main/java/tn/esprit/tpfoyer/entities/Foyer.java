@@ -1,5 +1,6 @@
 package tn.esprit.tpfoyer.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -41,13 +42,7 @@ public class Foyer {
         this.capaciteFoyer = capaciteFoyer;
     }
 
-    public Universite getUniversite() {
-        return universite;
-    }
 
-    public void setUniversite(Universite universite) {
-        this.universite = universite;
-    }
 
     public List<Bloc> getBlocs() {
         return blocs;
@@ -60,5 +55,7 @@ public class Foyer {
     @OneToOne
     private Universite universite;
     @OneToMany(mappedBy = "foyer")
+    @ToString.Exclude
+    @JsonIgnore
     private List<Bloc> blocs;
 }

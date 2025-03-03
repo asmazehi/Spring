@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tpfoyer.entities.Bloc;
+import tn.esprit.tpfoyer.entities.Foyer;
 import tn.esprit.tpfoyer.services.IBlocService;
 
 import java.util.List;
@@ -47,4 +48,5 @@ public class BlocRestController {
         Bloc bloc = blocService.modifyBloc(b);
         return bloc;
     }
+
 }
