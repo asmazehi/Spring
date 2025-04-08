@@ -9,7 +9,8 @@ import java.util.List;
 
 @Repository
 public interface ChambreRepository extends JpaRepository<Chambre, Long> {
-
+    List<Chambre> findAllByTypeChambre(TypeChambre tc);
+    Chambre findChambreByNumeroChambre(Long num);
     // No need to code CRUD here. It is already provided by the Spring Data JPA interfaces:
     // - CrudRepository
     // - PagingAndSortingRepository

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -18,7 +19,7 @@ public class Reservation {
     private boolean estValide;
 
     @ManyToMany
-    private List<Etudiant> etudiants;
+    private Set<Etudiant> etudiants;
 
     public Long getIdReservation() {
         return idReservation;
@@ -44,11 +45,11 @@ public class Reservation {
         this.estValide = estValide;
     }
 
-    public List<Etudiant> getEtudiants() {
+    public Set<Etudiant> getEtudiants() {
         return etudiants;
     }
 
-    public void setEtudiants(List<Etudiant> etudiants) {
+    public void setEtudiants(Set<Etudiant> etudiants) {
         this.etudiants = etudiants;
     }
 }
