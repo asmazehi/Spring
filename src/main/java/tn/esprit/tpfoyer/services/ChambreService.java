@@ -89,7 +89,7 @@ public class ChambreService implements IChambreService {
         }
     }
 
-    @Scheduled(cron = "0 */1 * * * *") // toutes les 5 minutes
+    @Scheduled(cron = "0 */5 * * * *") // toutes les 5 minutes
     public void pourcentageChambreParTypeChambre() {
         List<Chambre> chambres = chambreRepository.findAll();
         int total = chambres.size();
