@@ -88,4 +88,22 @@ public class ChambreService implements IChambreService {
             log.info("******************");
         }
     }
+
+    @Scheduled(cron = "0 */1 * * * *") // toutes les 5 minutes
+    public void pourcentageChambreParTypeChambre() {
+        List<Chambre> chambres = chambreRepository.findAll();
+        int total = chambres.size();
+
+        log.info("Nombre total des chambres: {}", total);
+
+        for (TypeChambre type : TypeChambre.values()) {
+            long count = chambres.stream()
+                    .filter(c -> c.getTypeC() == type)
+                    .count();
+
+            double pourcentage = total == 0 ? 0.0 : ((double) count / total) * 100.0;
+
+            log.info("Le pourcentage des chambres pour le type {} est égale à {}", type, pourcentage);
+        }
+    }
 }
